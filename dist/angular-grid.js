@@ -6855,7 +6855,7 @@ var awk;
                 if (!this.theInstance) {
                     this.theInstance = new DragAndDropService();
                     // need to clean this up, add to 'finished' logic in grid
-                    document.addEventListener('mouseup', this.theInstance.stopDragging.bind(this.theInstance));
+                    document.addEventListener('mouseup', this.theInstance.stopDragging.bind(this));
                 }
                 return this.theInstance;
             };
