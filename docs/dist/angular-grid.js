@@ -6850,12 +6850,12 @@ var awk;
         var utils = grid.Utils;
         var DragAndDropService = (function () {
             function DragAndDropService() {
-                // need to clean this up, add to 'finished' logic in grid
-                document.addEventListener('mouseup', this.stopDragging.bind(this));
             }
             DragAndDropService.getInstance = function () {
                 if (!this.theInstance) {
                     this.theInstance = new DragAndDropService();
+                    // need to clean this up, add to 'finished' logic in grid
+                    document.addEventListener('mouseup', this.theInstance.stopDragging.bind(this));
                 }
                 return this.theInstance;
             };

@@ -11,6 +11,8 @@ module awk.grid {
         static getInstance(): DragAndDropService {
             if (!this.theInstance) {
                 this.theInstance = new DragAndDropService();
+                // need to clean this up, add to 'finished' logic in grid
+                document.addEventListener('mouseup', this.theInstance.stopDragging.bind(this));
             }
             return this.theInstance;
         }
@@ -18,8 +20,7 @@ module awk.grid {
         dragItem: any;
 
         constructor() {
-            // need to clean this up, add to 'finished' logic in grid
-            document.addEventListener('mouseup', this.stopDragging.bind(this));
+
         }
 
         stopDragging() {
